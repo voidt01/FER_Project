@@ -1,0 +1,9 @@
+# Force LF for all text files
+* text=auto eol=lf
+
+# Specific settings for Jupyter notebooks
+*.ipynb text eol=lf
+
+# Binary files should be left unchanged
+*.png binary
+*.jpg binary
