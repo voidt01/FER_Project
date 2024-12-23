@@ -5,3 +5,4 @@ scikit-image==0.22.0
 opencv-python==4.9.0.80  
 matplotlib==3.8.2  
 notebook==7.1.0    
+gradio==5.9.1
