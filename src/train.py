@@ -29,7 +29,7 @@ def train_model(X_train, y_train):
 
     """
     logging.info("Training model has started")
-    model = SVC(kernel='rbf', gamma='scale', C=1, probability=True) 
+    model = SVC(kernel='linear', gamma=0.01, C=1) 
     model.fit(X_train, y_train) 
     logging.info("Model training completed")
     return model
@@ -43,7 +43,7 @@ def main():
     try:
         ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         data_path = os.path.join(ROOT_DIR, 'data')
-        model_path = os.path.join(ROOT_DIR, 'model', 'svmC_v1.pkl')
+        model_path = os.path.join(ROOT_DIR, 'model', 'svmC_v2.pkl')
 
         logging.info("Starting training process.")
         img_dataset = LoadData(data_path)
