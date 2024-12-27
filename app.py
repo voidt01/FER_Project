@@ -12,7 +12,7 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()]
 )
 
-def load_model(model_path=os.path.join('model', 'svmC_v1.pkl')):
+def load_model(model_path=os.path.join('model', 'svmC_v2.pkl')):
     """Loaded the trained SVM model"""
     try:
         with open(model_path, 'rb') as f:
@@ -69,12 +69,12 @@ def create_gradio_interface():
         with gr.Row():
             with gr.Column(scale=1):
                 image_input = gr.Image(sources=["upload"], type="numpy", label="Upload Image")
-                webcam_input = gr.Image(sources=["webcam"], type="numpy", label="Or Use Webcam")
+                # webcam_input = gr.Image(sources=["webcam"], type="numpy", label="Or Use Webcam", clear_after_upload=False)
                 
                 
                 with gr.Row():
                     upload_button = gr.Button("Process Uploaded Image", size="lg")
-                    webcam_button = gr.Button("Process Webcam Image", size="lg")
+                    # webcam_button = gr.Button("Process Webcam Image", size="lg")
             
             
             with gr.Column(scale=1):  
@@ -92,11 +92,11 @@ def create_gradio_interface():
             inputs=image_input,
             outputs=[output_image, output_text]
         )
-        webcam_button.click(
-            fn=preprocess_predict_image,
-            inputs=webcam_input,
-            outputs=[output_image, output_text]
-        )
+        # webcam_button.click(
+        #     fn=preprocess_predict_image,
+        #     inputs=webcam_input,
+        #     outputs=[output_image, output_text]
+        # )
     
     return app
 
